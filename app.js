@@ -3,10 +3,14 @@ const app = express();
 const server = require('http').createServer(app);
 const bodyParser = require('body-parser');
 const io = require('socket.io').listen(server);
+const User = require('./lib/user');
+const Power = require('./lib/power');
 
 const PORT = process.env.PORT || 3000;
 
-const connections = [];
+let connections = [];
+let users = [];
+let powers = [];
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,3 +34,8 @@ io.sockets.on('connection', (socket) => {
         console.log('Disconnected: %s sockets connected.', connections.length);
     });
 });
+
+function createUser() {
+    let x = Math.random() * 800;
+    let y = Math.random() * 800;
+}
