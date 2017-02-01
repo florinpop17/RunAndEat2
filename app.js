@@ -30,10 +30,16 @@ io.sockets.on('connection', (socket) => {
     
     
     socket.on('start', (user) => {
-        
         users.push(new User(socket.id, user.name, user.x, user.y, user.r, user.speed, user.col));
-        
-        console.log(users);
+    });
+    
+    socket.on('update', (updatedUser) => {
+        userToUpdate = users.filter(user => {
+            if(user.id === socket.id){
+                user.x = updatedUser.x;
+                user.y = updatedUser.y;
+            }
+        })
     });
     
     //Disconnect

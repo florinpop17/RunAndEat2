@@ -16,7 +16,6 @@ function setup() {
     
     socket.on('tick', function(_users){
         users = _users; 
-        console.log(users);
     });
 }
 
@@ -25,6 +24,7 @@ function draw() {
     
     drawUsers();
     drawThisUser();
+    socket.emit('update', user);
 }
 
 function drawThisUser(){
