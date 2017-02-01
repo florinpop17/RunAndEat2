@@ -1,10 +1,11 @@
 var socket;
 var users = [];
 var powers = [];
+var name = "HiddenUser";
 
 function preload() {
     socket = io.connect();
-    socket.emit("start");
+    socket.emit("start", name);
 }
 
 function setup() {
