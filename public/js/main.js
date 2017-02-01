@@ -141,7 +141,7 @@ function getPower() {
         var d = dist(user.x, user.y, power.x, power.y);
         
         if(d < user.r + power.r){
-            user.speed += power.val / 50;
+            user.speed += power.val / 100;
             socket.emit('got power', power.id);
         }
     })
