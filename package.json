@@ -4,7 +4,7 @@
   "description": "Socket.io + p5.js based game. 2nd version.",
   "main": "app.js",
   "scripts": {
-    "stat": "npm app.js",
+    "start": "npm app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
