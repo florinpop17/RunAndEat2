@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const io = require('socket.io').listen(server);
 
 const PORT = process.env.PORT || 3000;
+
+const connections = [];
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
