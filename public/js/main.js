@@ -10,6 +10,11 @@ function preload() {
 
 function setup() {
     createCanvas(800, 800);
+    
+    socket.on('tick', function(_users){
+        users = _users; 
+        console.log(users);
+    });
 }
 
 function draw() {

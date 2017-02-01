@@ -43,6 +43,15 @@ io.sockets.on('connection', (socket) => {
     });
 });
 
+
+setInterval(tick, 1000);
+
+function tick() {
+    io.sockets.emit('tick', users);
+}
+
+
+
 function createNewUser(_id, _name) {
     let id = _id;
     let name = _name;
