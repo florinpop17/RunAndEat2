@@ -18,13 +18,9 @@ submit.addEventListener('click', function(){
     }
 });
 
-
-function preload() {
-    socket = io.connect();
-}
-
 function setup() {
-    createCanvas(800, 800);
+    socket = io.connect();
+    createCanvas(700, 700);
     
     user = createNewUser(_name);
     socket.emit('start', user);
