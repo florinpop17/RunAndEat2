@@ -49,6 +49,7 @@ body{
 
 #intro p {
     font-size: 18px;
+    line-height: 24px;
     font-weight: 100;
     margin-top: 10px;
     margin-bottom: 30px;
@@ -77,8 +78,14 @@ body{
     background-color: #ff2020;
 }
 
+#intro ol {
+    margin-top: -20px;
+    padding-left: 30px;
+}
+
 #intro input{
     border: 0;
+    display: block;
     font-size: 20px;
     padding: 10px;
     margin: 30px auto 0;
@@ -98,7 +105,7 @@ body{
 }
 
 #intro a:hover{
-    margin-left: 10px;
+    margin-left: calc(50% - 150px + 5px);
     transition: all 0.3s ease;
 }
 
