@@ -49,14 +49,3 @@ setInterval(tick, 1000);
 function tick() {
     io.sockets.emit('tick', users);
 }
-
-
-
-function createNewUser(_id, _name) {
-    let id = _id;
-    let name = _name;
-    let x = Math.random() * 800;
-    let y = Math.random() * 800;
-    
-    return {id, name, x, y};
-}

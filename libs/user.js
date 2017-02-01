@@ -1,11 +1,12 @@
 class User {
-    constructor(_id, _x, _y, _name){
+    constructor(_id, _name, _x, _y, _r, _speed, _col){
         this.id = _id;
+        this.name = _name;
         this.x = _x;
         this.y = _y;
-        this.name = _name;
-        this.r = 20;
-        this.speed = 5;
+        this.r = _r;
+        this.speed = _speed;
+        this.col = _col;
     }
 }
 
