@@ -44,7 +44,7 @@ io.sockets.on('connection', (socket) => {
 });
 
 
-setInterval(tick, 1000);
+setInterval(tick, 33);
 
 function tick() {
     io.sockets.emit('tick', users);
