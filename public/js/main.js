@@ -91,7 +91,7 @@ function createNewUser(_name) {
     var name = _name;
     var x = random(0, width);
     var y = random(0, height);
-    var r = 30;
+    var r = 20;
     var speed = 5;
     var col = [random(255), random(255), random(255)];
     var show = false;
