@@ -1,7 +1,7 @@
 class Power {
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
+    constructor(_x, _y){
+        this.x = _x;
+        this.y = _y;
         this.r = 10;
     }
 }

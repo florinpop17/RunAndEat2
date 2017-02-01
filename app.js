@@ -28,6 +28,14 @@ io.sockets.on('connection', (socket) => {
     connections.push(socket);
     console.log('Connected: %s sockets connected.', connections.length);
     
+    
+    socket.on('start', (name) => {
+        let user = createNewUser(socket.id, name);
+        
+        users.push(new User({user}));
+        console.log(users);
+    });
+    
     //Disconnect
     socket.on('disconnect', (data) => {
         connections.splice(connections.indexOf(socket), 1);
@@ -35,9 +43,9 @@ io.sockets.on('connection', (socket) => {
     });
 });
 
-function createNewUser(id, name) {
-    let id = id;
-    let name = name;
+function createNewUser(_id, _name) {
+    let id = _id;
+    let name = _name;
     let x = Math.random() * 800;
     let y = Math.random() * 800;
     

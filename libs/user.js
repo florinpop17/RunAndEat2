@@ -1,9 +1,9 @@
 class User {
-    constructor(id, x, y, name){
-        this.id = id;
-        this.x = x;
-        this.y = y;
-        this.name = name;
+    constructor(_id, _x, _y, _name){
+        this.id = _id;
+        this.x = _x;
+        this.y = _y;
+        this.name = _name;
         this.r = 20;
         this.speed = 5;
     }
