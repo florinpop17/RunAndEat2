@@ -4,6 +4,21 @@ var users = [];
 var powers = [];
 var _name = "HiddenUser";
 
+var submit = document.getElementById('submit');
+var intro = document.getElementById('intro');
+
+submit.addEventListener('click', function(){
+    name = document.getElementById('name').value;
+    if(name){
+        intro.style.display = "none";
+        user.name = name;
+        user.show = true;
+    } else {
+        alert("Please enter your name!");
+    }
+});
+
+
 function preload() {
     socket = io.connect();
 }
@@ -34,15 +49,17 @@ function draw() {
 }
 
 function drawLeaderboard() {
-    fill(0);
-    rect(0, 0, 150, 200);
+    fill(10);
+    rect(0, 0, 150, 100);
     fill(255);
     textAlign(LEFT);
     textSize(16);
     text(`The Leaderboard`, 10, 25);
-    sortedUsers = users.sort(function(userA, userB){
+    sortedUsers = users.filter(function(user) { // Not showing the user which haven't entered a name
+        return user.show;
+    }).sort(function(userA, userB){ // Sorting the users by their speed
         return (userB.speed - userA.speed);
-    }).filter((user, idx) => idx < 8); // Added filter to only get the first 8 users
+    }).filter((user, idx) => idx < 3); // Added filter to only get the first 8 users
     
     sortedUsers.forEach(function(user, idx) {
         textSize(12);
@@ -53,11 +70,13 @@ function drawLeaderboard() {
 function drawUsers() {
     users.forEach(user => {
         fill(255);
-        textAlign(CENTER);
-        text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
-        
-        fill(user.col[0], user.col[1], user.col[2]);
-        ellipse(user.x, user.y, user.r*2, user.r*2);
+        if(user.show){
+            textAlign(CENTER);
+            text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
+
+            fill(user.col[0], user.col[1], user.col[2]);
+            ellipse(user.x, user.y, user.r*2, user.r*2);
+        }
     });
 }
 
@@ -75,6 +94,7 @@ function createNewUser(_name) {
     var r = 30;
     var speed = 5;
     var col = [random(255), random(255), random(255)];
+    var show = false;
     
     return {
         name: name,
@@ -82,7 +102,8 @@ function createNewUser(_name) {
         y: y,
         r: r,
         speed: speed,
-        col: col
+        col: col,
+        show: show
     }
 }
 

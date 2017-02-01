@@ -45,7 +45,9 @@ io.sockets.on('connection', (socket) => {
             if(user.id === socket.id){
                 user.x = updatedUser.x;
                 user.y = updatedUser.y;
+                user.name = updatedUser.name;
                 user.speed = updatedUser.speed;
+                user.show = updatedUser.show;
             }
         })
     });
