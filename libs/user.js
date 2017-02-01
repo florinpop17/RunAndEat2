@@ -8,3 +8,5 @@ class User {
         this.speed = 5;
     }
 }
+
+module.exports = User;

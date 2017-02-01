@@ -5,3 +5,5 @@ class Power {
         this.r = r;
     }
 }
+
+module.exports = Power;
