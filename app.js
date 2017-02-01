@@ -16,8 +16,8 @@ let maxNrOfPowers = 40;
 let timeOnNewPower = 700;
 let tickTime = 33; // 1000/30 => 30 frames/second
 
-let canvasWidth = 800;
-let canvasHeight = 800;
+let canvasWidth = 700;
+let canvasHeight = 700;
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -74,6 +74,6 @@ function tick() {
 
 function addPower(){
     if(powers.length < maxNrOfPowers){
-        powers.push(new Power(uuid(), Math.random() * 800, Math.random() * 800, Math.floor(Math.random() * 4) + 1));
+        powers.push(new Power(uuid(), Math.random() * canvasWidth, Math.random() * canvasHeight, Math.floor(Math.random() * 4) + 1));
     }
 }
