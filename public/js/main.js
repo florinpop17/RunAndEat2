@@ -96,6 +96,17 @@ function edges() {
     }
 }
 
+function getPower() {
+    powers.forEach(power => {
+        var d = dist(user.x, user.y, power.x, power.y);
+        
+        if(d < user.r + power.r){
+            user.speed += 0.2;
+            socket.emit('got power', power.id);
+        }
+    })
+}
+
 //Working without this function, but I might need it to draw the current user on top of the others.
 
 function drawThisUser(){
