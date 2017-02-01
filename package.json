@@ -1,0 +1,21 @@
+{
+  "name": "runandeat",
+  "version": "2.0.0",
+  "description": "Socket.io + p5.js based game. 2nd version.",
+  "main": "app.js",
+  "scripts": {
+    "stat": "npm app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florinpop17/RunAndEat2.git"
+  },
+  "keywords": [],
+  "author": "Florin Pop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/florinpop17/RunAndEat2/issues"
+  },
+  "homepage": "https://github.com/florinpop17/RunAndEat2#readme"
+}
