@@ -35,7 +35,7 @@ io.sockets.on('connection', (socket) => {
     });
 });
 
-function createUser(id, name) {
+function createNewUser(id, name) {
     let id = id;
     let name = name;
     let x = Math.random() * 800;
