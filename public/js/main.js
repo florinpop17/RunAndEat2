@@ -34,12 +34,9 @@ function setup() {
 function draw() {
     background(0);
     
-    move();
-    edges();
-    getPower();
-    
     drawPowers();
     drawUsers();
+    drawThisUser();
     drawLeaderboard();
     socket.emit('update', user);
 }
@@ -63,10 +60,23 @@ function drawLeaderboard() {
     });
 }
 
+//Working without this function, but I might need it to draw the current user on top of the others.
+
+function drawThisUser(){
+    move();
+    edges();
+    getPower();
+    textAlign(CENTER);
+    text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
+    
+    fill(user.col[0], user.col[1], user.col[2]);
+    ellipse(user.x, user.y, user.r*2, user.r*2);
+}
+
 function drawUsers() {
     users.forEach(user => {
         fill(255);
-        if(user.show){
+        if(user.id !== socket.id && user.show){
             textAlign(CENTER);
             text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
 
@@ -141,14 +151,4 @@ function getPower() {
             socket.emit('got power', power.id);
         }
     })
-}
-
-//Working without this function, but I might need it to draw the current user on top of the others.
-
-function drawThisUser(){
-    move();
-    edges();
-    
-    fill(user.col[0], user.col[1], user.col[2]);
-    ellipse(user.x, user.y, user.r*2, user.r*2);
 }
