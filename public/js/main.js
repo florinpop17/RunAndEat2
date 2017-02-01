@@ -67,6 +67,7 @@ function drawThisUser(){
     edges();
     getPower();
     textAlign(CENTER);
+    fill(255);
     text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
     
     fill(user.col[0], user.col[1], user.col[2]);
