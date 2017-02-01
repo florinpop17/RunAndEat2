@@ -10,6 +10,12 @@ html, body {
     overflow: hidden;
 }
 
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #intro {
     width: 100%;
     height: 100%;
