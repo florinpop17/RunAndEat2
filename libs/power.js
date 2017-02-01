@@ -5,7 +5,7 @@ class Power {
         this.id = _id;
         this.x = _x;
         this.y = _y;
-        this.r = 15;
+        this.r = 10;
         this.val = _val;
         this.col = colors[_val - 1];
     }

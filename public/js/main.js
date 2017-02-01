@@ -45,9 +45,8 @@ function drawUsers() {
 
 function drawPowers() {
     powers.forEach(power => {
-        console.log(power.val);
         fill(power.col);
-        ellipse(power.x, power.y, power.r)
+        ellipse(power.x, power.y, power.r*2, power.r*2)
     });
 }
 
@@ -103,7 +102,7 @@ function getPower() {
         var d = dist(user.x, user.y, power.x, power.y);
         
         if(d < user.r + power.r){
-            user.speed += 0.2;
+            user.speed += power.val / 50;
             socket.emit('got power', power.id);
         }
     })
