@@ -24,12 +24,20 @@ function draw() {
     background(0);
     
     drawUsers();
+    drawThisUser();
+}
+
+function drawThisUser(){
+    fill(user.col[0], user.col[1], user.col[2]);
+    ellipse(user.x, user.y, user.r*2, user.r*2);
 }
 
 function drawUsers() {
     users.forEach(user => {
-        fill(user.col[0], user.col[1], user.col[2]);
-        ellipse(user.x, user.y, user.r*2, user.r*2);
+        if(user.id !== socket.id){
+            fill(user.col[0], user.col[1], user.col[2]);
+            ellipse(user.x, user.y, user.r*2, user.r*2);
+        }
     });
 }
 
