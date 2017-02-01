@@ -12,7 +12,7 @@ function setup() {
     createCanvas(800, 800);
     
     user = createNewUser(_name);
-    socket.emit("start", user);
+    socket.emit('start', user);
     
     socket.on('tick', function(_users){
         users = _users; 
@@ -28,6 +28,9 @@ function draw() {
 }
 
 function drawThisUser(){
+    move();
+    edges();
+    
     fill(user.col[0], user.col[1], user.col[2]);
     ellipse(user.x, user.y, user.r*2, user.r*2);
 }
@@ -56,5 +59,34 @@ function createNewUser(_name) {
         r: r,
         speed: speed,
         col: col
+    }
+}
+
+function move() {
+    if (keyIsDown(LEFT_ARROW))
+        user.x -= user.speed;
+
+    if (keyIsDown(RIGHT_ARROW))
+        user.x += user.speed;
+
+    if (keyIsDown(UP_ARROW))
+        user.y -= user.speed;
+
+    if (keyIsDown(DOWN_ARROW))
+        user.y += user.speed;
+
+}
+
+function edges() {
+    if (user.x > width + user.r) {
+        user.x = -user.r;
+    } else if (user.x < -user.r) {
+        user.x = width + user.r;
+    }
+
+    if (user.y > height + user.r) {
+        user.y = -user.r;
+    } else if (user.y < -user.r) {
+        user.y = height + user.r;
     }
 }
