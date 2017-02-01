@@ -45,6 +45,7 @@ io.sockets.on('connection', (socket) => {
     //Disconnect
     socket.on('disconnect', (data) => {
         connections.splice(connections.indexOf(socket), 1);
+        users = users.filter(user => user.id !== socket.id);
         console.log('Disconnected: %s sockets connected.', connections.length);
     });
 });

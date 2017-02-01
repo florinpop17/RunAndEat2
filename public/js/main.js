@@ -22,25 +22,17 @@ function setup() {
 function draw() {
     background(0);
     
-    drawUsers();
-    drawThisUser();
-    socket.emit('update', user);
-}
-
-function drawThisUser(){
     move();
     edges();
     
-    fill(user.col[0], user.col[1], user.col[2]);
-    ellipse(user.x, user.y, user.r*2, user.r*2);
+    drawUsers();
+    socket.emit('update', user);
 }
 
 function drawUsers() {
     users.forEach(user => {
-        if(user.id !== socket.id){
-            fill(user.col[0], user.col[1], user.col[2]);
-            ellipse(user.x, user.y, user.r*2, user.r*2);
-        }
+        fill(user.col[0], user.col[1], user.col[2]);
+        ellipse(user.x, user.y, user.r*2, user.r*2);
     });
 }
 
@@ -89,4 +81,14 @@ function edges() {
     } else if (user.y < -user.r) {
         user.y = height + user.r;
     }
+}
+
+//Working without this function, but I might need it to draw the current user on top of the others.
+
+function drawThisUser(){
+    move();
+    edges();
+    
+    fill(user.col[0], user.col[1], user.col[2]);
+    ellipse(user.x, user.y, user.r*2, user.r*2);
 }
