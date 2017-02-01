@@ -45,8 +45,13 @@ io.sockets.on('connection', (socket) => {
             if(user.id === socket.id){
                 user.x = updatedUser.x;
                 user.y = updatedUser.y;
+                user.speed = updatedUser.speed;
             }
         })
+    });
+    
+    socket.on('got power', (powerId) => {
+        powers = powers.filter(power => power.id !== powerId); 
     });
     
     //Disconnect
@@ -67,6 +72,6 @@ function tick() {
 
 function addPower(){
     if(powers.length < maxNrOfPowers){
-        powers.push(new Power(Math.random() * 800, Math.random() * 800));
+        powers.push(new Power(uuid(), Math.random() * 800, Math.random() * 800, Math.floor(Math.random() * 4) + 1));
     }
 }

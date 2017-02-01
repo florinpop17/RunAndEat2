@@ -25,6 +25,7 @@ function draw() {
     
     move();
     edges();
+    getPower();
     
     drawPowers();
     drawUsers();
