@@ -55,7 +55,7 @@ function drawLeaderboard() {
     }).filter((user, idx) => idx < 3); // Added filter to only get the first 8 users
     
     sortedUsers.forEach(function(user, idx) {
-        textSize(12);
+        textSize(14);
         text(`${idx+1}. ${user.name}: ${user.speed.toFixed(2)}`, 10, idx*20+ 50);
     });
 }
@@ -67,6 +67,7 @@ function drawThisUser(){
     edges();
     getPower();
     textAlign(CENTER);
+    textSize(14);
     fill(255);
     text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
     
