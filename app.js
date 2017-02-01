@@ -29,10 +29,10 @@ io.sockets.on('connection', (socket) => {
     console.log('Connected: %s sockets connected.', connections.length);
     
     
-    socket.on('start', (name) => {
-        let newUser = createNewUser(socket.id, name);
+    socket.on('start', (user) => {
         
-        users.push(new User(newUser.id, newUser.x, newUser.y, newUser.name));
+        users.push(new User(socket.id, user.name, user.x, user.y, user.r, user.speed, user.col));
+        
         console.log(users);
     });
     

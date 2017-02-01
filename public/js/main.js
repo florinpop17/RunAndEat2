@@ -6,12 +6,13 @@ var _name = "HiddenUser";
 
 function preload() {
     socket = io.connect();
-    user = createNewUser(_name);
-    socket.emit("start", user);
 }
 
 function setup() {
     createCanvas(800, 800);
+    
+    user = createNewUser(_name);
+    socket.emit("start", user);
     
     socket.on('tick', function(_users){
         users = _users; 
