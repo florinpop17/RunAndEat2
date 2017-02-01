@@ -34,13 +34,17 @@ function draw() {
 }
 
 function drawLeaderboard() {
-    fill(12);
+    fill(0);
     rect(0, 0, 150, 200);
     fill(255);
     textAlign(LEFT);
     textSize(16);
     text(`The Leaderboard`, 10, 25);
-    users.forEach(function(user, idx) {
+    sortedUsers = users.sort(function(userA, userB){
+        return (userB.speed - userA.speed);
+    }).filter((user, idx) => idx < 8); // Added filter to only get the first 8 users
+    
+    sortedUsers.forEach(function(user, idx) {
         textSize(12);
         text(`${idx+1}. ${user.name}: ${user.speed.toFixed(2)}`, 10, idx*20+ 50);
     });
