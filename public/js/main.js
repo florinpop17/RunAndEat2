@@ -14,8 +14,9 @@ function setup() {
     user = createNewUser(_name);
     socket.emit('start', user);
     
-    socket.on('tick', function(_users){
-        users = _users; 
+    socket.on('tick', function(data){
+        users = data.users;
+        powers = data.powers;
     });
 }
 
@@ -25,6 +26,7 @@ function draw() {
     move();
     edges();
     
+    drawPowers();
     drawUsers();
     socket.emit('update', user);
 }
@@ -37,6 +39,13 @@ function drawUsers() {
         
         fill(user.col[0], user.col[1], user.col[2]);
         ellipse(user.x, user.y, user.r*2, user.r*2);
+    });
+}
+
+function drawPowers() {
+    powers.forEach(power => {
+        fill(255);
+        ellipse(power.x, power.y, power.r)
     });
 }
 

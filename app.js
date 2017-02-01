@@ -11,6 +11,12 @@ const PORT = process.env.PORT || 3000;
 let connections = [];
 let users = [];
 let powers = [];
+let maxNrOfPowers = 40;
+let timeOnNewPower = 700;
+let tickTime = 33; // 1000/30 => 30 frames/second
+
+let canvasWidth = 800;
+let canvasHeight = 800;
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,15 +57,15 @@ io.sockets.on('connection', (socket) => {
 });
 
 
-setInterval(tick, 33);
+setInterval(tick, tickTime);
+setInterval(addPower, timeOnNewPower);
 
 function tick() {
-    io.sockets.emit('tick', users);
+    io.sockets.emit('tick', {users, powers});
 }
 
 function addPower(){
-//    if(foods.length < 40){
-//        foods.push(new Food(id, Math.random() * 800, Math.random() * 800, 8, Math.floor(Math.random() * 4) + 1));
-//        id++;
-//    }
+    if(powers.length < maxNrOfPowers){
+        powers.push(new Power(Math.random() * 800, Math.random() * 800));
+    }
 }
