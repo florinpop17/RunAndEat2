@@ -31,6 +31,10 @@ function draw() {
 
 function drawUsers() {
     users.forEach(user => {
+        fill(255);
+        textAlign(CENTER);
+        text(`${user.name}(${user.speed.toFixed(2)})`, user.x, user.y - user.r*1.5);
+        
         fill(user.col[0], user.col[1], user.col[2]);
         ellipse(user.x, user.y, user.r*2, user.r*2);
     });

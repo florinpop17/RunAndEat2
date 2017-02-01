@@ -56,3 +56,10 @@ setInterval(tick, 33);
 function tick() {
     io.sockets.emit('tick', users);
 }
+
+function addPower(){
+//    if(foods.length < 40){
+//        foods.push(new Food(id, Math.random() * 800, Math.random() * 800, 8, Math.floor(Math.random() * 4) + 1));
+//        id++;
+//    }
+}
