@@ -3,6 +3,7 @@ const app = express();
 const server = require('http').createServer(app);
 const bodyParser = require('body-parser');
 const io = require('socket.io').listen(server);
+const uuid = require('uuid/v4');
 const User = require('./libs/user');
 const Power = require('./libs/power');
 
