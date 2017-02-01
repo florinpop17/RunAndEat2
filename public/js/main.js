@@ -6,6 +6,8 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    
+    socket.emit("start", {name, windowWidth, windowHeight});
 }
 
 function draw() {
