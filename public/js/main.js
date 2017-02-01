@@ -27,20 +27,22 @@ function draw() {
     edges();
     getPower();
     
-    drawLeaderboard();
     drawPowers();
     drawUsers();
+    drawLeaderboard();
     socket.emit('update', user);
 }
 
 function drawLeaderboard() {
+    fill(12);
+    rect(0, 0, 150, 200);
     fill(255);
     textAlign(LEFT);
     textSize(16);
-    text(`The Leaderboard`, 10, 25)
+    text(`The Leaderboard`, 10, 25);
     users.forEach(function(user, idx) {
         textSize(12);
-        text(`${user.name}: ${user.speed.toFixed(2)}`, 10, idx*20+ 50);
+        text(`${idx+1}. ${user.name}: ${user.speed.toFixed(2)}`, 10, idx*20+ 50);
     });
 }
 
