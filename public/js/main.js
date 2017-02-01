@@ -45,7 +45,8 @@ function drawUsers() {
 
 function drawPowers() {
     powers.forEach(power => {
-        fill(255);
+        console.log(power.val);
+        fill(power.col);
         ellipse(power.x, power.y, power.r)
     });
 }
