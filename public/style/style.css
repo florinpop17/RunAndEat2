@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.text-center {
+    text-align: center;
+}
+
 html, body {
     height: 100%;
     overflow: hidden;
@@ -26,14 +30,16 @@ body{
     background-color: #2980b9;
     color: white;
     font-family: Palanquin, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+}
+
+#intro .container {
+    margin: 150px auto 0;
+    width: 960px;
 }
 
 #intro h1 {
     font-size: 40px;
+    text-align: center;
 }
 
 #intro small{
@@ -41,19 +47,11 @@ body{
     font-size: 16px;
 }
 
-#intro h3{
-    margin: 20px 0 10px;
-}
-
 #intro p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 100;
     margin-top: 10px;
-}
-
-#intro p strong {
-    font-weight: 900;
-    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 #intro input{
@@ -64,7 +62,7 @@ body{
     width: 300px;
 }
 
-#intro a {
+#intro a.btn {
     background-color: #e74c3c;
     color: white;
     font-size: 20px;
@@ -77,4 +75,24 @@ body{
 #intro a:hover{
     margin-left: 10px;
     transition: all 0.3s ease;
+}
+
+footer {
+    background-color: #0b0e21;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer span {
+    color: #e74c3c;
+}
+
+footer a {
+    color: #2980b9;
+    text-decoration: none;
 }
