@@ -5,9 +5,10 @@ function preload() {
 }
 
 function setup() {
-    console.log(socket.id)
+    createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
+    background(0);
     
 }
