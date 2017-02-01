@@ -144,13 +144,23 @@ function edges() {
     }
 }
 
-function getPower() {
-    powers.forEach(power => {
+
+// Not clean, need to re-think it!!
+
+function getPower() {    
+    let powerToRemove = powers.filter(power => {
         var d = dist(user.x, user.y, power.x, power.y);
+        return d < user.r + power.r // d > because I only want to get this one
+    });
+    
+    if(powerToRemove.length > 0){
+        powers = powers.filter(function(power) {
+            return power.id !== powerToRemove[0].id
+        });
         
-        if(d < user.r + power.r){
-            user.speed += power.val / 100;
-            socket.emit('got power', power.id);
-        }
-    })
+        user.speed += powerToRemove[0].val / 100;
+        socket.emit('got power', powerToRemove[0].id);
+    }
+    
+    
 }
