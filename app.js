@@ -30,9 +30,9 @@ io.sockets.on('connection', (socket) => {
     
     
     socket.on('start', (name) => {
-        let user = createNewUser(socket.id, name);
+        let newUser = createNewUser(socket.id, name);
         
-        users.push(new User({user}));
+        users.push(new User(newUser.id, newUser.x, newUser.y, newUser.name));
         console.log(users);
     });
     
