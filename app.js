@@ -35,7 +35,11 @@ io.sockets.on('connection', (socket) => {
     });
 });
 
-function createUser() {
+function createUser(id, name) {
+    let id = id;
+    let name = name;
     let x = Math.random() * 800;
     let y = Math.random() * 800;
+    
+    return {id, name, x, y};
 }
